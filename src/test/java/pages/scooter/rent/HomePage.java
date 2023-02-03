@@ -1,4 +1,4 @@
-package PageObjects;
+package pages.scooter.rent;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -53,12 +53,12 @@ public class HomePage {
     //кнопка Заказать в середине страницы
     private final By orderBtnMiddle = By.xpath(".//button[@class='Button_Button__ra12g Button_Middle__1CSJM']");
 
-    public HomePage(WebDriver driver){
+    public HomePage(WebDriver driver) {
         this.driver = driver;
     }
 
-    public void clickAccordeonItem(By accHead, By accText, String text){
-        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", driver.findElement(accHead));
+    public void clickAccordeonItem(By accHead, By accText, String text) {
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", driver.findElement(accHead));
         new WebDriverWait(driver, Duration.ofSeconds(3))
                 .until(ExpectedConditions.elementToBeClickable(accHead));
         driver.findElement(accHead).click();
@@ -67,46 +67,46 @@ public class HomePage {
         assertEquals(driver.findElement(accText).getText(), text);
     }
 
-    public void assertAccordeonText1(){
-        clickAccordeonItem(accordeonHead, accordeonText, "Сутки — 400 рублей. Оплата курьеру — наличными или картой.");
+    public void assertAccordeonText1(String text) {
+        clickAccordeonItem(accordeonHead, accordeonText, text);
     }
 
-    public void assertAccordeonText2(){
-        clickAccordeonItem(accordeonHead2, accordeonText2, "Пока что у нас так: один заказ — один самокат. Если хотите покататься с друзьями, можете просто сделать несколько заказов — один за другим.");
+    public void assertAccordeonText2(String text) {
+        clickAccordeonItem(accordeonHead2, accordeonText2, text);
     }
 
-    public void assertAccordeonText3(){
-        clickAccordeonItem(accordeonHead3, accordeonText3, "Допустим, вы оформляете заказ на 8 мая. Мы привозим самокат 8 мая в течение дня. Отсчёт времени аренды начинается с момента, когда вы оплатите заказ курьеру. Если мы привезли самокат 8 мая в 20:30, суточная аренда закончится 9 мая в 20:30.");
+    public void assertAccordeonText3(String text) {
+        clickAccordeonItem(accordeonHead3, accordeonText3, text);
     }
 
-    public void assertAccordeonText4(){
-        clickAccordeonItem(accordeonHead4, accordeonText4, "Только начиная с завтрашнего дня. Но скоро станем расторопнее.");
+    public void assertAccordeonText4(String text) {
+        clickAccordeonItem(accordeonHead4, accordeonText4, text);
     }
 
-    public void assertAccordeonText5(){
-        clickAccordeonItem(accordeonHead5, accordeonText5, "Пока что нет! Но если что-то срочное — всегда можно позвонить в поддержку по красивому номеру 1010.");
+    public void assertAccordeonText5(String text) {
+        clickAccordeonItem(accordeonHead5, accordeonText5, text);
     }
 
-    public void assertAccordeonText6(){
-        clickAccordeonItem(accordeonHead6, accordeonText6, "Самокат приезжает к вам с полной зарядкой. Этого хватает на восемь суток — даже если будете кататься без передышек и во сне. Зарядка не понадобится.");
+    public void assertAccordeonText6(String text) {
+        clickAccordeonItem(accordeonHead6, accordeonText6, text);
     }
 
-    public void assertAccordeonText7(){
-        clickAccordeonItem(accordeonHead7, accordeonText7, "Да, пока самокат не привезли. Штрафа не будет, объяснительной записки тоже не попросим. Все же свои.");
+    public void assertAccordeonText7(String text) {
+        clickAccordeonItem(accordeonHead7, accordeonText7, text);
     }
 
-    public void assertAccordeonText8(){
-        clickAccordeonItem(accordeonHead8, accordeonText8, "Да, обязательно. Всем самокатов! И Москве, и Московской области.");
+    public void assertAccordeonText8(String text) {
+        clickAccordeonItem(accordeonHead8, accordeonText8, text);
     }
 
     //Клик по кнопке заказать в хедере
-    public void clickOrderBtnHeader(){
+    public void clickOrderBtnHeader() {
         driver.findElement(orderBtnHeader).click();
     }
 
     //Клик по кнопке Заказать в середине страницы
-    public void clickOrderBtnMiddle(){
-        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView();", driver.findElement(orderBtnMiddle));
+    public void clickOrderBtnMiddle() {
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", driver.findElement(orderBtnMiddle));
         new WebDriverWait(driver, Duration.ofSeconds(3))
                 .until(ExpectedConditions.elementToBeClickable(orderBtnMiddle));
         driver.findElement(orderBtnMiddle).click();

@@ -1,8 +1,9 @@
-package tests;
+package tests.scooter.rent;
 
-import PageObjects.HomePage;
-import PageObjects.OrderPage;
-import PageObjects.OrderPageAboutRent;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import pages.scooter.rent.HomePage;
+import pages.scooter.rent.OrderPage;
+import pages.scooter.rent.OrderPageAboutRent;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.After;
 import org.junit.Assert;
@@ -12,7 +13,6 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
 @RunWith(Parameterized.class)
 public class ScooterOrderTestParametrized {
@@ -23,7 +23,7 @@ public class ScooterOrderTestParametrized {
     private final String phoneInput;
     private final boolean isDisplayed;
 
-    public ScooterOrderTestParametrized(String nameInput, String surnameInput, String addressInput, String phoneInput, boolean isDisplayed){
+    public ScooterOrderTestParametrized(String nameInput, String surnameInput, String addressInput, String phoneInput, boolean isDisplayed) {
         this.nameInput = nameInput;
         this.surnameInput = surnameInput;
         this.addressInput = addressInput;
@@ -31,16 +31,16 @@ public class ScooterOrderTestParametrized {
         this.isDisplayed = isDisplayed;
     }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters(name = "Тестовые данные: {0} {1}")
     public static Object[][] getCities() {
-        return new Object[][] {
+        return new Object[][]{
                 {"Вениамин", "Вениаминович", "Ереванская 24", "89000000000", true},
-                { "Емельян", "Емельянович", "упс 12", "98322323232", true},
+                {"Емельян", "Емельянович", "упс 12", "98322323232", true},
         };
     }
 
     @Before
-    public void setUp(){
+    public void setUp() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         //WebDriverManager.firefoxdriver().setup(); // в firefox тесты проходят успешно
@@ -49,7 +49,7 @@ public class ScooterOrderTestParametrized {
 
     //оформление заказа по клину на верхнюю кнопку
     @Test
-    public void createOrderByHeaderBtn(){
+    public void createOrderByHeaderBtn() {
         driver.get("https://qa-scooter.praktikum-services.ru/");
         HomePage objHomePage = new HomePage(driver);
 
@@ -65,7 +65,7 @@ public class ScooterOrderTestParametrized {
 
     //оформление заказа по клину на кнопку в середине страницы
     @Test
-    public void createOrderByMiddleBtn(){
+    public void createOrderByMiddleBtn() {
         driver.get("https://qa-scooter.praktikum-services.ru/");
         HomePage objHomePage = new HomePage(driver);
 

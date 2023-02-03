@@ -1,17 +1,19 @@
-package PageObjects;
+package pages.scooter.rent;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.time.Duration;
 
 public class OrderPage {
     private final WebDriver driver;
+
     public OrderPage(WebDriver driver) {
         this.driver = driver;
     }
+
     //поля анкеты
     private final By nameInput = By.xpath(".//input[@placeholder='* Имя']");
     private final By surInput = By.xpath(".//input[@placeholder='* Фамилия']");
@@ -23,7 +25,7 @@ public class OrderPage {
     //станции метро
     private final By metroCherkizovskaya = By.xpath(".//div[text()='Черкизовская']");
 
-    public void sendOrderInfoPar(String name, String surname, String address, String phone){
+    public void sendOrderInfoPar(String name, String surname, String address, String phone) {
         new WebDriverWait(driver, Duration.ofSeconds(3))
                 .until(ExpectedConditions.elementToBeClickable(nameInput));
         driver.findElement(nameInput).sendKeys(name);

@@ -1,16 +1,19 @@
-package PageObjects;
+package pages.scooter.rent;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.time.Duration;
 
 public class OrderPageAboutRent {
     private final WebDriver driver;
+
     public OrderPageAboutRent(WebDriver driver) {
         this.driver = driver;
     }
+
     //поля анкеты
     private final By whenInput = By.xpath(".//input[@placeholder='* Когда привезти самокат']");
     private final By rentPeriodInput = By.xpath(".//div[@class='Dropdown-placeholder' and text()='* Срок аренды']");
@@ -24,9 +27,9 @@ public class OrderPageAboutRent {
     private final By approveOfferBtn = By.xpath(".//button[@class='Button_Button__ra12g Button_Middle__1CSJM' and text()='Да']");
     //текст на итоговом попапе с подтверждением заказа
     private final By finalPopup = By.xpath(".//div[text()='Заказ оформлен']");
-    private final By finalBtn = By.xpath (".//button[@class='Button_Button__ra12g Button_Middle__1CSJM' and text()='Посмотреть статус']");
+    private final By finalBtn = By.xpath(".//button[@class='Button_Button__ra12g Button_Middle__1CSJM' and text()='Посмотреть статус']");
 
-    public boolean sendOrderAboutRentInfoPar(){
+    public boolean sendOrderAboutRentInfoPar() {
         new WebDriverWait(driver, Duration.ofSeconds(3))
                 .until(ExpectedConditions.elementToBeClickable(whenInput));
         driver.findElement(whenInput).click();
