@@ -1,5 +1,6 @@
 package pages.scooter.rent;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -64,7 +65,7 @@ public class HomePage {
         driver.findElement(accHead).click();
         new WebDriverWait(driver, Duration.ofSeconds(3))
                 .until(ExpectedConditions.visibilityOfElementLocated(accText));
-        assertEquals(driver.findElement(accText).getText(), text);
+        Assert.assertEquals(driver.findElement(accText).getText(), text);
     }
 
     public void assertAccordeonText1(String text) {

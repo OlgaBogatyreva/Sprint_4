@@ -1,6 +1,5 @@
 package tests.scooter.rent;
 
-import org.openqa.selenium.firefox.FirefoxDriver;
 import pages.scooter.rent.HomePage;
 import pages.scooter.rent.OrderPage;
 import pages.scooter.rent.OrderPageAboutRent;
